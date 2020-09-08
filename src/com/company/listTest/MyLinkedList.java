@@ -1,7 +1,8 @@
 package com.company.listTest;
 
-public class MyLinkedList<T> implements List<T> {
+public class MyLinkedList<T> implements DoublyLinkedList<T> {
     private Node<T> head = null;
+    private Node<T> tail = null;
     private int counter = 0;
 
     private static class Node<T> {
@@ -46,12 +47,13 @@ public class MyLinkedList<T> implements List<T> {
         if ( head == null) {
             head = node;
         } else {
-            Node<T> current = head;
-            while( current.next != null) {
-                current = current.next;
-            }
-            current.next = node;
-            node.previous = current;
+            
+//            Node<T> current = head;
+//            while( current.next != null) {
+//                current = current.next;
+//            }
+//            current.next = node;
+//            node.previous = current;
         }
         counter++;
 
@@ -83,12 +85,25 @@ public class MyLinkedList<T> implements List<T> {
                 head.previous = null;
             } else {
                 Node<T> previousNode = getNodeAtPosition(position-1);
-                Node<T> nextNode = getNodeAtPosition(position+1);
                 previousNode.next = previousNode.next.next;
-                nextNode.previous = nextNode.previous.previous;
+                previousNode.next.previous = previousNode;
+//                Node<T> nextNode = getNodeAtPosition(position+1);
+//                previousNode.next = previousNode.next.next;
+//                nextNode.previous = nextNode.previous.previous;
             }
             counter--;
         }
+    }
+
+    @Override
+    public T getFirst() {
+        return head.data;
+    }
+
+    @Override
+    public T getLast() {
+       Node<T> node = getNodeAtPosition(size()-1);
+        return node.data;
     }
 
     @Override
