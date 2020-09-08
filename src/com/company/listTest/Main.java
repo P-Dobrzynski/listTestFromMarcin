@@ -2,7 +2,7 @@ package com.company.listTest;
 
 public class Main {
     static List<Integer> newList = new MyList<>();
-    static List<Integer> newLinkedList = new MyLinkedList<>();
+    static DoublyLinkedList<Integer> newDoublyLinkedList = new MyLinkedList<>();
 
     public static void main(String[] args) {
         int x = 1;
@@ -17,10 +17,10 @@ public class Main {
         System.out.println(newList.get(4));
         System.out.println("***************** tu testujemy MyLinkedList ****************");
         isLinkedListEmpty();
-        System.out.println("data on position " + x + " is: " + newLinkedList.get(x));
-        System.out.println("Linkedlist size is : " + newLinkedList.size());
-        newLinkedList.set(666, 1);
-        System.out.println("data on position " + x + " is: " + newLinkedList.get(x));
+        System.out.println("data on position " + x + " is: " + newDoublyLinkedList.get(x));
+        System.out.println("Linkedlist size is : " + newDoublyLinkedList.size());
+        newDoublyLinkedList.set(666, 1);
+        System.out.println("data on position " + x + " is: " + newDoublyLinkedList.get(x));
 
     }
 
@@ -28,7 +28,7 @@ public class Main {
         System.out.println("is list empty ? " + newList.isEmpty());
     }
     public static void isLinkedListEmpty() {
-        System.out.println("is Linkedlist empty ? " + newLinkedList.isEmpty());
+        System.out.println("is Linkedlist empty ? " + newDoublyLinkedList.isEmpty());
     }
     public static void fillTheList() {
         newList.prepend(0);
@@ -45,16 +45,16 @@ public class Main {
     }
 
     public static void fillTheLinkedList() {
-        newLinkedList.prepend(0);
-        newLinkedList.append(1);
-        newLinkedList.append(2);
-        newLinkedList.append(3);
-        newLinkedList.append(4);
-        newLinkedList.append(5);
-        newLinkedList.append(6);
-        newLinkedList.insert(8, 4);
-        newLinkedList.insert(9, 0);
-        newLinkedList.insert(10, 8);
-        newLinkedList.remove(1);
+        newDoublyLinkedList.prepend(0);
+        newDoublyLinkedList.append(1);
+        newDoublyLinkedList.append(2);
+        newDoublyLinkedList.append(3);
+        newDoublyLinkedList.append(4);
+        newDoublyLinkedList.append(5);
+        newDoublyLinkedList.append(6);
+        newDoublyLinkedList.insert(8, 4);
+        newDoublyLinkedList.insert(9, 0);
+        newDoublyLinkedList.insert(10, 8);
+        newDoublyLinkedList.remove(1);
     }
 }
