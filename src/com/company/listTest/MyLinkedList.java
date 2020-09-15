@@ -32,6 +32,7 @@ public class MyLinkedList<T> implements DoublyLinkedList<T> {
         Node<T> node = new Node<>(data);
         if ( head == null) {
             head = node;
+            tail = node;
         } else {
             Node<T> current = head;
                 head = node;
@@ -46,14 +47,15 @@ public class MyLinkedList<T> implements DoublyLinkedList<T> {
         Node<T> node = new Node<>(data);
         if ( head == null) {
             head = node;
+            tail = node;
         } else {
-            
-//            Node<T> current = head;
-//            while( current.next != null) {
-//                current = current.next;
-//            }
-//            current.next = node;
-//            node.previous = current;
+            Node<T> current = head;
+            while( current.next != null) {
+                current = current.next;
+            }
+            current.next = node;
+            node.previous = current;
+            tail = node;
         }
         counter++;
 
@@ -83,13 +85,13 @@ public class MyLinkedList<T> implements DoublyLinkedList<T> {
             if (position == 0) {
                 head = head.next;
                 head.previous = null;
+            } else if (position == counter-1) {
+                tail = tail.previous;
+                tail.next = null;
             } else {
                 Node<T> previousNode = getNodeAtPosition(position-1);
                 previousNode.next = previousNode.next.next;
                 previousNode.next.previous = previousNode;
-//                Node<T> nextNode = getNodeAtPosition(position+1);
-//                previousNode.next = previousNode.next.next;
-//                nextNode.previous = nextNode.previous.previous;
             }
             counter--;
         }
@@ -102,8 +104,7 @@ public class MyLinkedList<T> implements DoublyLinkedList<T> {
 
     @Override
     public T getLast() {
-       Node<T> node = getNodeAtPosition(size()-1);
-        return node.data;
+       return tail.data;
     }
 
     @Override
