@@ -21,6 +21,9 @@ public class Main {
         System.out.println("Linkedlist size is : " + newDoublyLinkedList.size());
         newDoublyLinkedList.set(666, 1);
         System.out.println("data on position " + x + " is: " + newDoublyLinkedList.get(x));
+        System.out.println(newDoublyLinkedList.getFirst());
+        System.out.println(newDoublyLinkedList.getLast());
+        System.out.println(newDoublyLinkedList.get(7));
 
     }
 
@@ -54,7 +57,8 @@ public class Main {
         newDoublyLinkedList.append(6);
         newDoublyLinkedList.insert(8, 4);
         newDoublyLinkedList.insert(9, 0);
-        newDoublyLinkedList.insert(10, 8);
+        newDoublyLinkedList.insert(10, 9);
         newDoublyLinkedList.remove(1);
     }
+
 }
