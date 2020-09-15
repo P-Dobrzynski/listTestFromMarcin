@@ -49,12 +49,8 @@ public class MyLinkedList<T> implements DoublyLinkedList<T> {
             head = node;
             tail = node;
         } else {
-            Node<T> current = head;
-            while( current.next != null) {
-                current = current.next;
-            }
-            current.next = node;
-            node.previous = current;
+            tail.next = node;
+            node.previous = tail;
             tail = node;
         }
         counter++;
